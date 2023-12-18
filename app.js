@@ -17,7 +17,7 @@ movieSearchForm.addEventListener('submit', function(e){
 // This title would then be fed to the getMovies function
 async function searchTitle (title) {
     let normalTitle = formatTitle(title)
-    const response = await fetch(`http://www.omdbapi.com/?apikey=537849f9&s=${normalTitle}`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=537849f9&s=${normalTitle}`)
     const data = await response.json()
 
     // if the movie does not exist
@@ -84,7 +84,7 @@ function renderMovies(movieList) {
 // This function gets the movies based on the title received 
 // from searchTitle 
 async function getMovies (title) {
-    const response = await fetch(`http://www.omdbapi.com/?apikey=537849f9&t=${title}&plot=full`)
+    const response = await fetch(`https://www.omdbapi.com/?apikey=537849f9&t=${title}&plot=full`)
     const data = await response.json()
     const movieData = {
         title: data.Title != 'N/A'? data.Title : 'No information',
